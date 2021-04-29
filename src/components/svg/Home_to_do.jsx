@@ -140,14 +140,14 @@ export const HomeImage = ({ Color, Size }) => {
           data-name="Path 515"
           d="M673.2,252.843h-309.9a7.023,7.023,0,0,1,0-14.047H673.2a7.023,7.023,0,0,1,0,14.047Z"
           transform="translate(0.81)"
-          fill="#ccc"
+          fill={Color}
         />
         <path
           id="Path_516"
           data-name="Path 516"
           d="M572.235,222.994H363.293a7.023,7.023,0,1,1,0-14.047H572.235a7.023,7.023,0,0,1,0,14.047Z"
           transform="translate(0.81)"
-          fill="#ccc"
+          fill={Color}
         />
         <path
           id="Path_517"
@@ -203,7 +203,7 @@ export const HomeImage = ({ Color, Size }) => {
           data-name="Path 523"
           d="M972.81,713h-198a1,1,0,0,1,0-2h198a1,1,0,0,1,0,2Z"
           transform="translate(0.81)"
-          fill="#ccc"
+          fill={Color}
         />
         <path
           id="Path_561"

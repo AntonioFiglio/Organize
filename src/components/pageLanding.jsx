@@ -1,11 +1,11 @@
-import Button from "../components/button.jsx";
-import { HomeImage } from "../components/svg/Home";
+import Button from "./button.jsx";
+import { HomeImage } from "./svg/Home_to_do.jsx";
 import {
   Container,
   ContainerMenssage,
   Menssage,
   Image,
-} from "../styles/pages/PageLanding";
+} from "../styles/components/PageLanding";
 
 const PageLanding = () => {
   return (

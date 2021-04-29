@@ -1,11 +1,16 @@
 import styled, { css } from "styled-components";
 
 export const Container = styled.div`
+  position: relative;
   height: 90vh;
   display: grid;
   grid-template-columns: 40vw 60vw;
 
-  background: transparent;
+  background-image: linear-gradient(
+    to bottom right,
+    ${(props) => props.theme.colors.Primary},
+    ${(props) => props.theme.colors.PrimaryLight}
+  );
 
   @media (max-width: 576px) {
     display: flex;
@@ -47,4 +52,36 @@ export const Image = styled.div`
   @media (max-width: 576px) {
     display: none;
   }
+`;
+
+export const ScrollDown = styled.div`
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  margin: 5px;
+
+  bottom: 30px;
+  left: 47%;
+
+  border: 2px solid ${({ theme }) => theme.colors.Secundary};
+  border-radius: 20px;
+  /* animation: 1s infinite ScrollDown ease-in-out; */
+  animation-delay: 3s;
+
+  @keyframes ScrollDown {
+    0% {
+      bottom: 30px;
+    }
+    50% {
+      bottom: 40px;
+    }
+    100% {
+      bottom: 30px;
+    }
+  }
+
+
 `;

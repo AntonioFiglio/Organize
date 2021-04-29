@@ -3,6 +3,7 @@ const DarkTheme_Green = {
   colors: {
     Primary: "#191b1d",
     PrimaryLight: "#282c34",
+    PrimaryLightPlus: "#303236",
     Secundary: "#53E33D",
     TextColorPrimary: "#fff",
     TextColorPrimaryDark: "#bdbebf",

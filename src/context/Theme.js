@@ -7,7 +7,6 @@ import DarkTheme_Green from "../styles/theme/DarkTheme_Green";
 const ThemeHookContext = createContext({});
 
 export const ThemeHookProvider = ({ children }) => {
-  const [loading, setLoading] = useState(true);
   const [currentTheme, setCurrentTheme] = useState(DarkTheme_Blue);
 
   const [list, setList] = useState([

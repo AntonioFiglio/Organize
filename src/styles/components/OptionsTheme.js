@@ -8,7 +8,7 @@ export const Hamburger = styled.div`
   padding: 5px;
   z-index: 999;
 
-  background: ${(props) => props.theme.colors.Primary};
+  background: ${(props) => props.theme.colors.PrimaryLightPlus};
 
   border-radius: 30px;
   transition: 300ms;

@@ -5,8 +5,8 @@ import OptionsTheme from "./components/optionsTheme";
 
 import GlobalStyle from "./styles/Global";
 
-import PageLanding from "./pages/PageLanding.jsx";
 import Header from "./components/header";
+import { Home } from "./pages/home";
 
 const App = () => {
   const { currentTheme } = useHookTheme();
@@ -16,8 +16,7 @@ const App = () => {
       <ThemeProvider theme={currentTheme}>
         <GlobalStyle />
         <Header />
-        <PageLanding />
-
+        <Home />
         <OptionsTheme />
       </ThemeProvider>
     </>

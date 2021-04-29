@@ -3,6 +3,7 @@ const DarkTheme_Blue = {
   colors: {
     Primary: "#191b1d",
     PrimaryLight: "#282c34",
+    PrimaryLightPlus: "#303236",
     Secundary: "#4169e1",
     TextColorPrimary: "#fff",
     TextColorPrimaryDark: "#bdbebf",

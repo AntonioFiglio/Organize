@@ -3,6 +3,7 @@ const DarkTheme_Red = {
   colors: {
     Primary: "#191b1d",
     PrimaryLight: "#282c34",
+    PrimaryLightPlus: "#303236",
     Secundary: "#E33D3D",
     TextColorPrimary: "#fff",
     TextColorPrimaryDark: "#bdbebf",

@@ -1,4 +1,5 @@
-import { createGlobalStyle } from "styled-components";
+import reactDom from "react-dom";
+import styled, { createGlobalStyle, css } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
 
@@ -9,10 +10,6 @@ const GlobalStyle = createGlobalStyle`
     }
     html,body{
         font-size: 97.8%;
-
-        /* background-image: linear-gradient(to bottom right,${(props) =>
-          props.theme.colors.Primary}, ${(props) =>
-  props.theme.colors.PrimaryLight}); */
 
             background:${(props) => props.theme.colors.Primary};
             height:100%;
@@ -25,3 +22,7 @@ const GlobalStyle = createGlobalStyle`
 `;
 
 export default GlobalStyle;
+
+export const Wrapper = styled.div`
+  height: ${({ Height }) => Height};
+`;

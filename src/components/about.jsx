@@ -1,11 +1,11 @@
+import { useState } from "react";
 import {
   Container,
-  Card,
   Cards,
   SectionAbout,
   LearnMore,
-  Text,
 } from "../styles/components/About";
+import { Card } from "./cardAbout";
 import { IcoNotes } from "./svg/icoNotes";
 import { IcoToDo } from "./svg/icoToDo";
 
@@ -13,23 +13,29 @@ export const About = () => {
   const CardObject = [
     {
       name: "To Do",
-      image: <IcoToDo Size={"300px"} />,
+      image: <IcoToDo Size={"250px"} />,
+      description:
+        "If you want to write what you need to do, in this day or that time, this application is for you because you will go to write a  simple and organized list.",
     },
     {
       name: "Notes",
-      image: <IcoNotes Size={"300px"} />,
+      image: <IcoNotes Size={"250px"} />,
+      description:
+        "If your question is how you can write your notes and look at it anytime this is for you",
     },
   ];
 
   return (
     <Container>
       <Cards>
-        {CardObject.map((card, index) => {
+        {CardObject.map((Content, index) => {
           return (
-            <Card key={index}>
-              {card.image}
-              <Text Tittle>{card.name}</Text>
-            </Card>
+            <Card
+              key={index}
+              name={Content.name}
+              image={Content.image}
+              description={Content.description}
+            />
           );
         })}
       </Cards>

@@ -1,15 +1,15 @@
-import { About } from "../components/about";
 import PageLanding from "../components/pageLanding";
-
-import {Container, Wrapper} from "../styles/pages/Home"
+import { About } from "../components/about";
+import { Container } from "../styles/pages/Home";
+import { Wrapper } from "../styles/Global";
 
 export const Home = () => {
   return (
     <Container>
       <PageLanding />
-      <Wrapper /> 
-      <About />
-      <Wrapper /> 
+      <Wrapper Height={"10vh"} />
+      <About id="LearnMore" />
+      <Wrapper Height={"10vh"} />
     </Container>
   );
 };

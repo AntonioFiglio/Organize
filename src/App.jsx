@@ -7,6 +7,7 @@ import GlobalStyle from "./styles/Global";
 
 import Header from "./components/header";
 import { Home } from "./pages/home";
+import Footer from "./components/footer";
 
 const App = () => {
   const { currentTheme } = useHookTheme();
@@ -17,6 +18,7 @@ const App = () => {
         <GlobalStyle />
         <Header />
         <Home />
+        <Footer />
         <OptionsTheme />
       </ThemeProvider>
     </>

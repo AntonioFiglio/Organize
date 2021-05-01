@@ -1,5 +1,4 @@
-import reactDom from "react-dom";
-import styled, { createGlobalStyle, css } from "styled-components";
+import styled, { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
 
@@ -19,6 +18,20 @@ const GlobalStyle = createGlobalStyle`
         color:${(props) => props.theme.colors.TextColorPrimary};
         font-family:${(props) => props.theme.fonts.Primary};
     }
+
+    a{
+        color:inherit;
+        text-decoration: none;
+    }
+
+    @media(max-width: 1200px){
+        font-size: 99.8%;
+    }
+
+    @media(max-width: 350px){
+        font-size: 84.5%;
+    }
+
 `;
 
 export default GlobalStyle;

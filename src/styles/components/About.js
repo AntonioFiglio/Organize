@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 export const Container = styled.div`
   display: flex;
@@ -17,5 +17,3 @@ export const Cards = styled.div`
   justify-content: center;
 `;
 
-export const SectionAbout = styled.section``;
-export const LearnMore = styled.div``;

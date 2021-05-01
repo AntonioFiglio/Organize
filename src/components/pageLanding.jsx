@@ -21,6 +21,7 @@ const PageLanding = () => {
 
         <Button
           info={{
+            type: "button",
             content: "Learn More",
             fontSize: "1.2rem",
             paddingX: "10px",

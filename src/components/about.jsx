@@ -1,10 +1,4 @@
-import { useState } from "react";
-import {
-  Container,
-  Cards,
-  SectionAbout,
-  LearnMore,
-} from "../styles/components/About";
+import { Container, Cards } from "../styles/components/About";
 import { Card } from "./cardAbout";
 import { IcoNotes } from "./svg/icoNotes";
 import { IcoToDo } from "./svg/icoToDo";

@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
+
 import Button from "../components/button.jsx";
 import { Container, Account, Logo } from "../styles/components/Header";
 
@@ -7,14 +9,19 @@ const Header = () => {
 
   return (
     <Container>
-      <Logo>
-        <span>Organize</span>
-        {/* <button onClick={() => setUser(!user)}> cambiarra</button> */}
-      </Logo>
+      <>
+        <Link to="/">
+          <Logo>
+            <span>Organize</span>
+          </Logo>
+        </Link>
+      </>
+
       <Account>
         {user === true ? (
           <Button
             info={{
+              type: "button",
               content: "Workspace",
               fontSize: "1.0rem",
               paddingX: "10px",
@@ -27,6 +34,7 @@ const Header = () => {
           <>
             <Button
               info={{
+                type: "button",
                 content: "SignIn",
                 fontSize: "1.0rem",
                 paddingX: "10px",
@@ -34,8 +42,10 @@ const Header = () => {
                 borderRadius: "16px",
                 Ghost: true,
                 width: "90px",
+                url: "/sign",
               }}
             />
+
             <Button
               info={{
                 content: "SignUp",
@@ -45,12 +55,12 @@ const Header = () => {
                 borderRadius: "16px",
                 Full: true,
                 width: "90px",
+                url: "/sign",
               }}
             />
           </>
         )}
       </Account>
-
     </Container>
   );
 };

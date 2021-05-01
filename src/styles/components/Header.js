@@ -8,9 +8,11 @@ export const Container = styled.header`
 `;
 
 export const Logo = styled.div`
-  font-size: 2rem;
+  font-size: 1.5rem;
   cursor: pointer;
 
 `;
 
-export const Account = styled.div``;
+export const Account = styled.div`
+  display: flex;
+`;

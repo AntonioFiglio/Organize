@@ -1,4 +1,5 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
+import { Link } from "react-router-dom";
 import Button from "../components/button";
 import { Input } from "../components/input";
 import { Wrapper } from "../styles/Global";
@@ -7,27 +8,28 @@ import {
   Container,
   ContainerSignIn,
   ContainerSignUp,
+  Header,
+  Body,
+  Footer,
+  Extra,
+  Term,
+  Text,
 } from "../styles/pages/Sign";
 
-export const Sign = ({ singUp }) => {
-  const [currentLayout, setCurrentLayout] = useState(false);
-
+export const SignIn = () => {
   const HandleSignIn = (e) => {
     e.preventDefault();
     console.log("logged");
   };
 
-  useEffect(() => {
-    singUp === true ? setCurrentLayout(true) : setCurrentLayout(false);
-  }, []);
-
   return (
     <>
       <Container>
-        {currentLayout === false ? (
-          <ContainerSignIn method="post" onSubmit={HandleSignIn}>
+        <ContainerSignIn method="post" onSubmit={HandleSignIn}>
+          <Header>
             <h1>WorkSpace</h1>
-
+          </Header>
+          <Body>
             <Input
               info={{
                 type: "text",
@@ -44,6 +46,7 @@ export const Sign = ({ singUp }) => {
             <Input
               info={{
                 type: "Password",
+                password: true,
                 placeholder: "Password",
                 fontSize: "1rem",
                 outline: false,
@@ -53,7 +56,8 @@ export const Sign = ({ singUp }) => {
                 borderRadius: "4px",
               }}
             />
-
+          </Body>
+          <Footer>
             <Button
               info={{
                 type: "submit",
@@ -66,10 +70,17 @@ export const Sign = ({ singUp }) => {
                 width: "90px",
               }}
             />
-          </ContainerSignIn>
-        ) : (
-          <ContainerSignUp>Register</ContainerSignUp>
-        )}
+            <Extra>
+              <Link to="/recover-Account">
+                <Text Pointer={true}>Forgot password</Text>
+              </Link>
+
+              <Link to="/sign-up">
+                <Text Pointer={true}>Create new account</Text>
+              </Link>
+            </Extra>
+          </Footer>
+        </ContainerSignIn>
       </Container>
       <Wrapper Height={"15vh"} />
     </>

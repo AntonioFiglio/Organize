@@ -36,26 +36,26 @@ const Header = () => {
               info={{
                 type: "button",
                 content: "SignIn",
-                fontSize: "1.0rem",
+                fontSize: "0.9rem",
                 paddingX: "10px",
                 paddingY: "7px",
                 borderRadius: "16px",
                 Ghost: true,
                 width: "90px",
-                url: "/sign",
+                url: "/sign-in"
               }}
             />
 
             <Button
               info={{
                 content: "SignUp",
-                fontSize: "1.0rem",
+                fontSize: "0.9rem",
                 paddingX: "10px",
                 paddingY: "7px",
                 borderRadius: "16px",
                 Full: true,
                 width: "90px",
-                url: "/sign",
+                url: "/sign-up"
               }}
             />
           </>

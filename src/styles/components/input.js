@@ -8,8 +8,9 @@ export const Container = styled.label`
 
   min-width: ${({ info }) => info.minWidth};
   max-width: ${({ info }) => info.maxWidth};
-  max-height: 50px;
+  max-height: 80px;
   margin: 5px;
+
   transition: 300ms;
 `;
 
@@ -29,7 +30,8 @@ export const Line = styled.div`
   width: 40%;
   height: 2px;
 
-  background: ${({ theme }) => theme.colors.TextColorPrimaryDark};
+  /* background: ${({ theme }) => theme.colors.TextColorPrimaryDark}; */
+  background: ${({ theme }) => theme.colors.Secundary};
 
   animation: 1s forwards
     ${({ line }) => (line === false ? "closeLine" : "openLine")} ease-in-out;
@@ -55,5 +57,17 @@ export const Line = styled.div`
       width: 0%;
       height: 2px;
     }
+  }
+`;
+
+export const ShowPassword = styled.label`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  cursor: pointer;
+  font-size: 0.8rem;
+  * {
+    margin: 5px;
   }
 `;

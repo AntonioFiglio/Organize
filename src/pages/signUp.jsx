@@ -31,7 +31,8 @@ export const SignUp = () => {
           <Body>
             <Input
               info={{
-                type: "text",
+                type: "Email",
+                required: true,
                 placeholder: "Email",
                 fontSize: "1rem",
                 outline: false,
@@ -45,6 +46,7 @@ export const SignUp = () => {
             <Input
               info={{
                 type: "Password",
+                required: true,
                 password: true,
                 placeholder: "Password",
                 fontSize: "1rem",

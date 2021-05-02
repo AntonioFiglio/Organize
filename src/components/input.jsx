@@ -38,14 +38,19 @@ export const Input = ({ info }) => {
         type={info.type}
         placeholder={info.placeholder}
         info={info}
+        required={info.required}
       />
       {info.password === true ? (
         <>
-        <ShowPassword>
-          <input type="checkbox" name="show" id="show" onClick={handleClick} />
-          <span>Show password</span>
-        </ShowPassword>
-        
+          <ShowPassword>
+            <input
+              type="checkbox"
+              name="show"
+              id="show"
+              onClick={handleClick}
+            />
+            <span>Show password</span>
+          </ShowPassword>
         </>
       ) : null}
     </Container>

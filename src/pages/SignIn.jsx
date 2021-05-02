@@ -32,7 +32,8 @@ export const SignIn = () => {
           <Body>
             <Input
               info={{
-                type: "text",
+                type: "Email",
+                required: true,
                 placeholder: "Email",
                 fontSize: "1rem",
                 outline: false,
@@ -46,6 +47,7 @@ export const SignIn = () => {
             <Input
               info={{
                 type: "Password",
+                required: true,
                 password: true,
                 placeholder: "Password",
                 fontSize: "1rem",
@@ -71,7 +73,7 @@ export const SignIn = () => {
               }}
             />
             <Extra>
-              <Link to="/recover-Account">
+              <Link to="/recover">
                 <Text Pointer={true}>Forgot password</Text>
               </Link>
 

@@ -2,9 +2,8 @@ import styled, { css } from "styled-components";
 
 export const Container = styled.div`
   display: flex;
-  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-evenly;
 
   height: 90vh;
 
@@ -13,6 +12,12 @@ export const Container = styled.div`
     ${(props) => props.theme.colors.Primary},
     ${(props) => props.theme.colors.PrimaryLight}
   );
+
+  @media (max-width: 650px) {
+    .Image {
+      display: none;
+    }
+  }
 `;
 
 export const ContainerHelp = styled.form`

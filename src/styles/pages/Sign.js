@@ -21,6 +21,7 @@ export const ContainerSignIn = styled.form`
 
   height: auto;
   width: auto;
+  min-width: 300px;
   padding: 10px;
 
   background-color: ${(props) => props.theme.colors.PrimaryLight};
@@ -32,7 +33,8 @@ export const ContainerSignUp = styled.div`
   align-items: center;
 
   height: auto;
-  width: 300px;
+  width: auto;
+  min-width: 300px;
   padding: 10px;
 
   background-color: ${(props) => props.theme.colors.PrimaryLight};

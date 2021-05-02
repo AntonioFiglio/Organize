@@ -32,7 +32,7 @@ const PageLanding = () => {
         />
       </ContainerMenssage>
       <Image>
-        <HomeImage Size={"450px"} />
+        <HomeImage Size={"20rem"} />
       </Image>
     </Container>
   );

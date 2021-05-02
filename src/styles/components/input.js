@@ -6,11 +6,7 @@ export const Container = styled.label`
   align-items: flex-start;
   justify-content: center;
 
-  min-width: ${({ info }) => info.minWidth};
-  max-width: ${({ info }) => info.maxWidth};
-  max-height: 80px;
   margin: 5px;
-
   transition: 300ms;
 `;
 
@@ -30,7 +26,6 @@ export const Line = styled.div`
   width: 40%;
   height: 2px;
 
-  /* background: ${({ theme }) => theme.colors.TextColorPrimaryDark}; */
   background: ${({ theme }) => theme.colors.Secundary};
 
   animation: 1s forwards

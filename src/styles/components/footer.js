@@ -8,4 +8,5 @@ export const Container = styled.footer`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  font-size: 0.9rem;
 `;

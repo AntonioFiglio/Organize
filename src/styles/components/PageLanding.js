@@ -5,6 +5,7 @@ export const Container = styled.div`
   height: 90vh;
   display: grid;
   grid-template-columns: 40vw 60vw;
+  gap: 20px;
 
   background-image: linear-gradient(
     to bottom right,
@@ -18,23 +19,23 @@ export const Container = styled.div`
 `;
 
 export const ContainerMenssage = styled.div`
-  height: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
   justify-content: center;
+  align-items: center;
+
+  padding: 20px;
+  margin: 0px;
+
 
   div {
-    display: flex;
-    flex-direction: column;
-    margin: 10px;
+    text-indent: 1rem;
   }
 `;
 
 export const Menssage = styled.span`
   text-indent: 5px;
   font-size: 1rem;
-  text-indent: 10px;
 
   ${(props) =>
     props.Tittle &&
@@ -48,40 +49,9 @@ export const Image = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  padding: 20px;
 
   @media (max-width: 576px) {
     display: none;
   }
-`;
-
-export const ScrollDown = styled.div`
-  position: absolute;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 40px;
-  height: 40px;
-  margin: 5px;
-
-  bottom: 30px;
-  left: 47%;
-
-  border: 2px solid ${({ theme }) => theme.colors.Secundary};
-  border-radius: 20px;
-  /* animation: 1s infinite ScrollDown ease-in-out; */
-  animation-delay: 3s;
-
-  @keyframes ScrollDown {
-    0% {
-      bottom: 30px;
-    }
-    50% {
-      bottom: 40px;
-    }
-    100% {
-      bottom: 30px;
-    }
-  }
-
-
 `;

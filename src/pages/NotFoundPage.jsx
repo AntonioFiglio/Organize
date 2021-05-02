@@ -8,11 +8,11 @@ export const NotFoundPage = () => {
   return (
     <>
       <Container>
-        <NotFoundImage Size={"300px"} />
+        <NotFoundImage Size={"15rem"} />
         <span>
-          Page not found,{" "}
+          Page not found,
           <Link to="/">
-            <b>Back to home</b>
+            <b> Back to home</b>
           </Link>
         </span>
       </Container>

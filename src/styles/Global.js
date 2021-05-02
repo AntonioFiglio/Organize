@@ -24,12 +24,18 @@ const GlobalStyle = createGlobalStyle`
         text-decoration: none;
     }
 
-    @media(max-width: 1200px){
-        font-size: 99.8%;
-    }
 
-    @media(max-width: 350px){
-        font-size: 84.5%;
+
+    @media(min-width:1100px){
+        html,body{
+            font-size: 120%;
+        }
+    }
+ 
+    @media(max-width:575px){
+        html,body{
+            font-size: 87.5%;
+        }
     }
 
 `;

@@ -75,7 +75,7 @@ export const Menu = styled.div`
   background: ${(props) => props.theme.colors.Primary};
 
   height: 100%;
-  width: 40vw;
+  width: 50vw;
   bottom: 0px;
 
   @media (max-width: 690px) {

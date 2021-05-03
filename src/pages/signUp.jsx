@@ -1,11 +1,9 @@
 import { Link } from "react-router-dom";
 import Button from "../components/button";
 import { Input } from "../components/input";
-import { Wrapper } from "../styles/Global";
 
 import {
   Container,
-  ContainerSignIn,
   ContainerSignUp,
   Header,
   Body,
@@ -83,7 +81,6 @@ export const SignUp = () => {
           </Footer>
         </ContainerSignUp>
       </Container>
-      <Wrapper Height={"15vh"} />
     </>
   );
 };

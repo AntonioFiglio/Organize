@@ -6,8 +6,11 @@ import {
   Menssage,
   Image,
 } from "../styles/components/PageLanding";
+import { useAuth } from "../context/Auth.js";
 
 const PageLanding = () => {
+  const { auth } = useAuth();
+
   return (
     <Container>
       <ContainerMenssage>
@@ -18,18 +21,32 @@ const PageLanding = () => {
             a salvation for you!
           </Menssage>
         </div>
-
-        <Button
-          info={{
-            type: "button",
-            content: "Learn More",
-            fontSize: "1.2rem",
-            paddingX: "10px",
-            paddingY: "7px",
-            borderRadius: "20px",
-            Ghost: true,
-          }}
-        />
+        {auth === null ? (
+          <Button
+            info={{
+              type: "button",
+              content: "Get start",
+              fontSize: "1.2rem",
+              paddingX: "10px",
+              paddingY: "15px",
+              borderRadius: "20px",
+              Ghost: true,
+            }}
+          />
+        ) : (
+          <Button
+            info={{
+              type: "button",
+              content: "Workspace",
+              fontSize: "1.2rem",
+              paddingX: "10px",
+              paddingY: "15px",
+              borderRadius: "20px",
+              Ghost: true,
+              url: "/workSpace",
+            }}
+          />
+        )}
       </ContainerMenssage>
       <Image>
         <HomeImage Size={"20rem"} />

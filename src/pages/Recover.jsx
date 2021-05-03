@@ -1,7 +1,6 @@
 import Button from "../components/button";
 import { Input } from "../components/input";
 import { RecoverImage } from "../components/svg/RecoverPage";
-import { Wrapper } from "../styles/Global";
 import { Container, ContainerHelp, Text } from "../styles/pages/Recover";
 
 export const Recover = () => {
@@ -46,7 +45,6 @@ export const Recover = () => {
           <RecoverImage Size={"15rem"} />
         </div>
       </Container>
-      <Wrapper Height={"10vh"} />
     </>
   );
 };

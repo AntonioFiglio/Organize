@@ -1,10 +1,11 @@
-import { ThemeProvider } from "styled-components";
-import { useHookTheme } from "./context/Theme";
 import { BrowserRouter } from "react-router-dom";
+import { ThemeProvider } from "styled-components";
+import { AuthProvider } from "./context/Auth";
+import { useHookTheme } from "./context/Theme";
 
 import OptionsTheme from "./components/optionsTheme";
 
-import GlobalStyle from "./styles/Global";
+import GlobalStyle, { Wrapper } from "./styles/Global";
 
 import Header from "./components/header";
 import Routes from "./Routes";
@@ -15,15 +16,18 @@ const App = () => {
 
   return (
     <>
-      <BrowserRouter>
-        <ThemeProvider theme={currentTheme}>
-          <GlobalStyle />
-          <Header />
-          <Routes />
-          <Footer />
-          <OptionsTheme />
-        </ThemeProvider>
-      </BrowserRouter>
+      <AuthProvider>
+        <BrowserRouter>
+          <ThemeProvider theme={currentTheme}>
+            <GlobalStyle />
+            <Header />
+            <Routes />
+            <Wrapper Height={"10vh"} />
+            <Footer />
+            <OptionsTheme />
+          </ThemeProvider>
+        </BrowserRouter>
+      </AuthProvider>
     </>
   );
 };

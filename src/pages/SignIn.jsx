@@ -1,18 +1,14 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import Button from "../components/button";
 import { Input } from "../components/input";
-import { Wrapper } from "../styles/Global";
 
 import {
   Container,
   ContainerSignIn,
-  ContainerSignUp,
   Header,
   Body,
   Footer,
   Extra,
-  Term,
   Text,
 } from "../styles/pages/Sign";
 
@@ -84,7 +80,6 @@ export const SignIn = () => {
           </Footer>
         </ContainerSignIn>
       </Container>
-      <Wrapper Height={"15vh"} />
     </>
   );
 };

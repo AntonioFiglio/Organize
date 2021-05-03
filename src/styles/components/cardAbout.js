@@ -6,7 +6,7 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
 
-  height: ${({ description }) => (description === true ? "400" : "250px")};
+  height: ${({ description }) => (description === true ? "400px" : "250px")};
   width: ${({ description }) => (description === true ? "300px" : "250px")};
 
   padding: 5px;
@@ -31,7 +31,12 @@ export const Container = styled.div`
   }
 
   * {
-    margin: 20px;
+    margin: 10px;
+  }
+
+  img {
+    height: auto;
+    width: auto;
   }
 `;
 

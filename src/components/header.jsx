@@ -1,12 +1,11 @@
-import { useState } from "react";
 import { Link } from "react-router-dom";
 
 import Button from "../components/button.jsx";
+import { useAuth } from "../context/Auth.js";
 import { Container, Account, Logo } from "../styles/components/Header";
 
 const Header = () => {
-  const [user, setUser] = useState(false);
-
+  const { auth } = useAuth();
   return (
     <Container>
       <>
@@ -18,7 +17,36 @@ const Header = () => {
       </>
 
       <Account>
-        {user === true ? (
+        {auth === null ? (
+          <>
+            <Button
+              info={{
+                type: "button",
+                content: "SignIn",
+                fontSize: "1.0rem",
+                paddingX: "10px",
+                paddingY: "7px",
+                borderRadius: "16px",
+                Ghost: true,
+                width: "90px",
+                url: "/sign-in",
+              }}
+            />
+
+            <Button
+              info={{
+                content: "SignUp",
+                fontSize: "1.0rem",
+                paddingX: "10px",
+                paddingY: "7px",
+                borderRadius: "16px",
+                Full: true,
+                width: "90px",
+                url: "/sign-up",
+              }}
+            />
+          </>
+        ) : (
           <Button
             info={{
               type: "button",
@@ -28,37 +56,9 @@ const Header = () => {
               paddingY: "7px",
               borderRadius: "16px",
               Ghost: true,
+              url: "/workSpace",
             }}
           />
-        ) : (
-          <>
-            <Button
-              info={{
-                type: "button",
-                content: "SignIn",
-                fontSize: "0.9rem",
-                paddingX: "10px",
-                paddingY: "7px",
-                borderRadius: "16px",
-                Ghost: true,
-                width: "90px",
-                url: "/sign-in"
-              }}
-            />
-
-            <Button
-              info={{
-                content: "SignUp",
-                fontSize: "0.9rem",
-                paddingX: "10px",
-                paddingY: "7px",
-                borderRadius: "16px",
-                Full: true,
-                width: "90px",
-                url: "/sign-up"
-              }}
-            />
-          </>
         )}
       </Account>
     </Container>

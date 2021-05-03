@@ -7,6 +7,8 @@ const DarkTheme_Green = {
     Secundary: "#53E33D",
     TextColorPrimary: "#fff",
     TextColorPrimaryDark: "#bdbebf",
+    white: "#fff",
+    black: "#000",
   },
   fonts: {
     Primary: "'Poppins', sans-serif",

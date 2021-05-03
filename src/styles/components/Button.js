@@ -7,7 +7,7 @@ export const Container = styled.button`
   border: none;
   border-radius: ${({ info }) => info.borderRadius};
 
-  width: ${({info}) => info.width};
+  width: ${({ info }) => info.width};
 
   background: ${(props) => props.theme.colors.Primary};
   cursor: pointer;
@@ -22,15 +22,15 @@ export const Container = styled.button`
       border: 2px solid ${(props) => props.theme.colors.Secundary};
     `};
 
-    ${({ info }) =>
-      info.Full === true &&
-      css`
-        background: ${(props) => props.theme.colors.Secundary};
-      `};
+  ${({ info }) =>
+    info.Full === true &&
+    css`
+      background: ${(props) => props.theme.colors.Secundary};
+      color: ${(props) => props.theme.colors.white};
+    `};
 
-  :hover{
+  :hover {
     filter: brightness(60%);
     transition: 300ms;
   }
-
 `;

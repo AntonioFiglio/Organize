@@ -7,6 +7,8 @@ const DarkTheme_Red = {
     Secundary: "#E33D3D",
     TextColorPrimary: "#fff",
     TextColorPrimaryDark: "#bdbebf",
+    white: "#fff",
+    black: "#000",
   },
 
   fonts: {

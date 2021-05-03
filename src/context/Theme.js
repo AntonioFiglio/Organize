@@ -3,6 +3,10 @@ import React, { createContext, useContext, useEffect, useState } from "react";
 import DarkTheme_Blue from "../styles/theme/DarkTheme_Blue";
 import DarkTheme_Red from "../styles/theme/DarkTheme_Red";
 import DarkTheme_Green from "../styles/theme/DarkTheme_Green";
+import WhiteTheme_Blue from "../styles/theme/WhiteTheme_Blue";
+import WhiteTheme_Red from "../styles/theme/WhiteTheme_Red";
+import WhiteTheme_Green from "../styles/theme/WhiteTheme_Green";
+
 
 const ThemeHookContext = createContext({});
 
@@ -13,6 +17,9 @@ export const ThemeHookProvider = ({ children }) => {
     DarkTheme_Blue,
     DarkTheme_Red,
     DarkTheme_Green,
+    WhiteTheme_Blue,
+    WhiteTheme_Red,
+    WhiteTheme_Green,
   ]);
 
   useEffect(() => {

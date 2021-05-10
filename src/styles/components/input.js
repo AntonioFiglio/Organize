@@ -16,7 +16,7 @@ export const ContainerInput = styled.input`
   font-size: ${({ info }) => info.fontSize};
   padding: ${({ info }) => info.padding};
 
-  outline: ${({ info }) => (info.outline ? "none" : "initial")};
+  outline: ${({ info }) => (info.outline ? "hidden" : "initial")};
   border: none;
   border-radius: ${({ info }) => info.borderRadius};
 `;
@@ -59,10 +59,12 @@ export const ShowPassword = styled.label`
   display: flex;
   align-items: center;
   justify-content: center;
+  margin: 10px 0px 0px 0px;
 
   cursor: pointer;
   font-size: 0.8rem;
   * {
     margin: 5px;
+    cursor: pointer;
   }
 `;

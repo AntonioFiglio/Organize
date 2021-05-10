@@ -5,10 +5,12 @@ const DarkTheme_Green = {
     PrimaryLight: "#282c34",
     PrimaryLightPlus: "#303236",
     Secundary: "#53E33D",
+    SecundaryLight: "#74d466",
     TextColorPrimary: "#fff",
     TextColorPrimaryDark: "#bdbebf",
     white: "#fff",
     black: "#000",
+    Error: "#f75757",
   },
   fonts: {
     Primary: "'Poppins', sans-serif",

@@ -5,10 +5,12 @@ const WhiteTheme_Green = {
       PrimaryLight: "#D6D0CD",
       PrimaryLightPlus: "#F9F4F5",
       Secundary: "#53E33D",
+      SecundaryLight: "#74d466",
       TextColorPrimary: "#000",
       TextColorPrimaryDark: "#c0d0",
       white: "#fff",
       black: "#000",
+      Error: "#f75757",
     },
     fonts: {
       Primary: "'Poppins', sans-serif",

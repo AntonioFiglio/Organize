@@ -1,34 +1,42 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { useAuth } from "../context/Auth";
 import { Card } from "../components/cardAbout";
+
+import { IcoNotes } from "../components/svg/icoNotes";
+import { IcoToDo } from "../components/svg/icoToDo";
+
 import { Container, Header, Body, Text } from "../styles/pages/workSpace";
 
 export const WorkSpace = () => {
-  const [optionsWorks, setOptionsWorks] = useState(null);
+  const options = [
+    {
+      name: "To Do",
+      image: <IcoToDo Size={"15rem"} />,
+    },
+    {
+      name: "Notes",
+      image: <IcoNotes Size={"15rem"} />,
+    },
+  ];
+  const { auth } = useAuth();
+  const { name } = auth.user;
 
   return (
     <Container>
       <Header>
-        <Text Tittle>Welcome! {optionsWorks.username}</Text>
+        <Text Tittle>Welcome {name}!</Text>
       </Header>
       <Body>
-        {optionsWorks === null ? (
-          <h1>Loading...</h1>
-        ) : (
-          <>
-            {optionsWorks.map((option, index) => {
-              return (
-                <Card
-                  key={index}
-                  imageUrl={
-                    "https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Ftse1.mm.bing.net%2Fth%3Fid%3DOIP.DdotwQC9bqJVBhK6e-YUMQHaJ4%26pid%3DApi%26h%3D160&f=1"
-                  }
-                  name={option.name}
-                  state={false}
-                />
-              );
-            })}
-          </>
-        )}
+        {options.map((option, index) => {
+          return (
+            <Card
+              key={index}
+              image={option.image}
+              name={option.name}
+              state={false}
+            />
+          );
+        })}
       </Body>
     </Container>
   );

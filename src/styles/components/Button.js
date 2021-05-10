@@ -8,6 +8,9 @@ export const Container = styled.button`
   border-radius: ${({ info }) => info.borderRadius};
 
   width: ${({ info }) => info.width};
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
 
   background: ${(props) => props.theme.colors.Primary};
   cursor: pointer;

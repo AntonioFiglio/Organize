@@ -11,17 +11,18 @@ const Button = ({ info }) => {
   // Ghost:
   // width:
   // url:
+  // disable
 
   return (
     <>
       {info.url !== undefined ? (
         <Link to={info.url}>
-          <Container type={info.type} info={info}>
+          <Container type={info.type} info={info} disabled={info.disable}>
             {info.content}
           </Container>
         </Link>
       ) : (
-        <Container type={info.type} info={info}>
+        <Container type={info.type} info={info} disabled={info.disable}>
           {info.content}
         </Container>
       )}

@@ -5,11 +5,13 @@ const WhiteTheme_Red = {
     PrimaryLight: "#D6D0CD",
     PrimaryLightPlus: "#F9F4F5",
     Secundary: "#E33D3D",
+    SecundaryLight: "#f75757",
     TextColorPrimary: "#000",
     TextColorPrimaryDark: "#c0d0",
 
     white: "#fff",
     black: "#000",
+    Error: "#f75757",
   },
 
   fonts: {

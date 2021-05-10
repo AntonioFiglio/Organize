@@ -1,7 +1,14 @@
+import { useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import Button from "../components/button";
-import { Input } from "../components/input";
+import { useAuth } from "../context/Auth";
+import { useHistory } from "react-router-dom";
 
+import api from "../services/api";
+
+import Button from "../components/button";
+import { Wrapper } from "../styles/Global";
+import { Loading } from "../components/loading";
+import { Input } from "../components/input";
 import {
   Container,
   ContainerSignUp,
@@ -14,53 +21,138 @@ import {
 } from "../styles/pages/Sign";
 
 export const SignUp = () => {
-  const HandleSignUp = (e) => {
+  const [loading, setLoading] = useState(false);
+  const [name, setName] = useState(undefined);
+  const [email, setEmail] = useState(undefined);
+  const [password, setPassword] = useState(undefined);
+  const [error, setError] = useState(false);
+
+  const { setAuth, auth } = useAuth();
+  const history = useHistory();
+
+  const checkTerm = useRef();
+
+  const HandleSignUp = async (e) => {
     e.preventDefault();
-    console.log("Created new account");
+    setLoading(!loading);
+
+    if (!checkTerm.current.checked) {
+      throw "Not checked!";
+    }
+
+    if (!(name || email || password)) {
+      throw "Missing arguments!";
+    }
+
+    await api
+      .post("api/signUp", {
+        name: name,
+        email: email,
+        password: password,
+      })
+      .then((res) => {
+        const { user, token } = res.data;
+        localStorage.setItem("user", JSON.stringify({ user, token }));
+        setAuth({
+          user,
+          token,
+        });
+        setLoading(false);
+        return history.replace("./workSpace");
+      })
+      .catch((error) => {
+        setLoading(false);
+        setError(!error);
+        return console.log(error.toJSON());
+      });
   };
+
+  useEffect(() => {
+    if (!auth) {
+      return null;
+    }
+    return history.replace("./workSpace");
+  }, []);
 
   return (
     <>
       <Container>
-        <ContainerSignUp onSubmit={HandleSignUp}>
+        <ContainerSignUp method="post" onSubmit={HandleSignUp}>
           <Header>
             <h1>Create Account</h1>
           </Header>
           <Body>
-            <Input
-              info={{
-                type: "Email",
-                required: true,
-                placeholder: "Email",
-                fontSize: "1rem",
-                outline: false,
-                minWidth: "200px",
-                maxWidth: "450px",
-                padding: "10px",
-                borderRadius: "4px",
-              }}
-            />
+            {loading ? (
+              <>
+                <Wrapper Height={"5vh"} />
+                <Loading info={{ size: "32px", radius: "16px" }} />
+                <Wrapper Height={"5vh"} />
+              </>
+            ) : (
+              <>
+                <Input
+                  info={{
+                    type: "Text",
+                    required: true,
+                    placeholder: "Billy",
+                    fontSize: "1rem",
+                    outline: false,
+                    minWidth: "200px",
+                    maxWidth: "450px",
+                    padding: "10px",
+                    borderRadius: "4px",
+                    state: setName,
+                  }}
+                />
 
-            <Input
-              info={{
-                type: "Password",
-                required: true,
-                password: true,
-                placeholder: "Password",
-                fontSize: "1rem",
-                outline: false,
-                minWidth: "200px",
-                maxWidth: "450px",
-                padding: "10px",
-                borderRadius: "4px",
-              }}
-            />
-            <Extra>
-              <Term htmlFor="term">
-                <input type="checkbox" name="term" id="term" />
-                <Text>I accept all terms</Text>
-              </Term>
-            </Extra>
+                <Input
+                  info={{
+                    type: "Email",
+                    required: true,
+                    placeholder: "Billy@exemple.com",
+                    fontSize: "1rem",
+                    outline: false,
+                    minWidth: "200px",
+                    maxWidth: "450px",
+                    padding: "10px",
+                    borderRadius: "4px",
+                    state: setEmail,
+                  }}
+                />
+
+                <Input
+                  info={{
+                    type: "Password",
+                    required: true,
+                    password: true,
+                    placeholder: "Password",
+                    fontSize: "1rem",
+                    outline: false,
+                    minWidth: "200px",
+                    maxWidth: "450px",
+                    padding: "10px",
+                    borderRadius: "4px",
+                    state: setPassword,
+                  }}
+                />
+                <Extra>
+                  <Term htmlFor="term">
+                    <input
+                      type="checkbox"
+                      name="term"
+                      id="term"
+                      ref={checkTerm}
+                    />
+                    <Text>
+                      I accept all
+                      <Link to="/terms" target={"_black"}>
+                        <Text Bold>terms.</Text>
+                      </Link>
+                    </Text>
+                  </Term>
+                </Extra>
+              </>
+            )}
           </Body>
           <Footer>
             <Button
@@ -73,6 +165,7 @@ export const SignUp = () => {
                 borderRadius: "16px",
                 Full: true,
                 width: "90px",
+                disable: loading,
               }}
             />
             <Link to="/sign-in">

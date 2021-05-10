@@ -16,6 +16,7 @@ export const Input = ({ info }) => {
   // maxWidth: string
   // padding: string
   // borderRadius: string
+  // state: function
 
   const [line, setLine] = useState(false);
   const [show, setShow] = useState(false);
@@ -29,16 +30,13 @@ export const Input = ({ info }) => {
     <Container info={info} htmlFor="input">
       <Line line={line} />
       <ContainerInput
-        onMouseEnter={() => {
-          setLine(!line);
-        }}
-        onMouseLeave={() => {
-          setLine(!line);
-        }}
+        onFocus={() => setLine(!line)}
+        onBlur={() => setLine(!line)}
         type={info.type}
         placeholder={info.placeholder}
         info={info}
         required={info.required}
+        onChange={(e) => info.state(e.target.value)}
       />
       {info.password === true ? (
         <>

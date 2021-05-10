@@ -5,10 +5,12 @@ const DarkTheme_Red = {
     PrimaryLight: "#282c34",
     PrimaryLightPlus: "#303236",
     Secundary: "#E33D3D",
+    SecundaryLight: "#f75757",
     TextColorPrimary: "#fff",
     TextColorPrimaryDark: "#bdbebf",
     white: "#fff",
     black: "#000",
+    Error: "#f75757",
   },
 
   fonts: {

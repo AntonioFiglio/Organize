@@ -6,6 +6,7 @@ import { Container, Account, Logo } from "../styles/components/Header";
 
 const Header = () => {
   const { auth } = useAuth();
+
   return (
     <Container>
       <>
@@ -17,7 +18,7 @@ const Header = () => {
       </>
 
       <Account>
-        {auth === null ? (
+        {!auth ? (
           <>
             <Button
               info={{

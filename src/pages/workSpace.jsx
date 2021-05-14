@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import { useAuth } from "../context/Auth";
 import { Card } from "../components/cardAbout";
 
@@ -11,11 +11,11 @@ export const WorkSpace = () => {
   const options = [
     {
       name: "To Do",
-      image: <IcoToDo Size={"15rem"} />,
+      image: <IcoToDo Size={"12rem"} />,
     },
     {
       name: "Notes",
-      image: <IcoNotes Size={"15rem"} />,
+      image: <IcoNotes Size={"12rem"} />,
     },
   ];
   const { auth } = useAuth();

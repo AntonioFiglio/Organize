@@ -48,18 +48,34 @@ const Header = () => {
             />
           </>
         ) : (
-          <Button
-            info={{
-              type: "button",
-              content: "Workspace",
-              fontSize: "1.0rem",
-              paddingX: "10px",
-              paddingY: "7px",
-              borderRadius: "16px",
-              Ghost: true,
-              url: "/workSpace",
-            }}
-          />
+          <>
+            <Button
+              info={{
+                type: "button",
+                content: "Profile",
+                fontSize: "1.0rem",
+                paddingX: "10px",
+                paddingY: "7px",
+                borderRadius: "16px",
+                Full: true,
+                url: "/profile",
+                width: "120px",
+              }}
+            />
+            <Button
+              info={{
+                type: "button",
+                content: "Logout",
+                fontSize: "1.0rem",
+                paddingX: "8px",
+                paddingY: "7px",
+                borderRadius: "16px",
+                Ghost: true,
+                url: "/profile/logout",
+                width: "120px",
+              }}
+            />
+          </>
         )}
       </Account>
     </Container>

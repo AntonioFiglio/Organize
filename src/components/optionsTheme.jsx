@@ -6,9 +6,10 @@ import {
   Menu,
   Options,
   Option,
-  OptionText,
   Current,
 } from "../styles/components/OptionsTheme";
+
+import { Text } from "../styles/Global";
 
 const OptionsTheme = () => {
   const [open, setOpen] = useState(false);
@@ -21,7 +22,6 @@ const OptionsTheme = () => {
     setCurrentTheme(JSON.parse(getTheme));
   };
 
-
   return (
     <Container open={open} onClick={() => setOpen(!open)}>
       <Hamburger open={open} onClick={() => setOpen(!open)}>
@@ -31,14 +31,14 @@ const OptionsTheme = () => {
       </Hamburger>
 
       <Menu open={open}>
-        <OptionText Tittle>Choise your favorite Theme</OptionText>
+        <Text Tittle>Choise your favorite Theme</Text>
         <Options>
           {list.map((list, index) => {
             const name = list.Name;
 
             return (
               <Option key={index} onClick={() => handleClick({ index })}>
-                <OptionText>{name}</OptionText>
+                <Text NormalSize>{name}</Text>
                 {name === currentTheme.Name ? <Current /> : null}
               </Option>
             );

@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 export const Container = styled.div``;
 export const Hamburger = styled.div`
@@ -75,7 +75,7 @@ export const Menu = styled.div`
   background: ${(props) => props.theme.colors.Primary};
 
   height: 100%;
-  width: 50vw;
+  width: auto;
   bottom: 0px;
 
   @media (max-width: 690px) {
@@ -111,7 +111,6 @@ export const Options = styled.div`
   align-items: center;
 `;
 export const Option = styled.div`
-  color: ${(props) => props.theme.colors.TextColorPrimary};
   background: ${(props) => props.theme.colors.PrimaryLight};
   width: 90%;
   margin: 5px;
@@ -127,50 +126,6 @@ export const Option = styled.div`
     filter: brightness(90%);
     transform: scale(1.05);
     transition: 300ms;
-  }
-`;
-
-export const OptionText = styled.div`
-  font-size: 1.3rem;
-
-  ${({ Tittle }) =>
-    Tittle &&
-    css`
-      margin: 10px;
-      font-size: 1.8rem;
-      background: ${(props) => props.theme.colors.Primary};
-      cursor: default;
-      filter: none;
-    `}
-
-  @media( max-width: 690px) {
-    ${({ Tittle }) =>
-      Tittle &&
-      css`
-        font-size: 1.5rem;
-      `}
-    font-size: 1.2rem;
-  }
-
-  @media (max-width: 590px) {
-    ${({ Tittle }) =>
-      Tittle &&
-      css`
-        text-align: center;
-        font-size: 1.3rem;
-      `}
-
-    font-size: 1.1rem;
-  }
-
-  @media (max-width: 490px) {
-    ${({ Tittle }) =>
-      Tittle &&
-      css`
-        text-align: center;
-        font-size: 1.2rem;
-      `}
-    font-size: 1rem;
   }
 `;
 

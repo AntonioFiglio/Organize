@@ -12,6 +12,7 @@ const WhiteTheme_Blue = {
       white: "#fff",
       black: "#000",
       Error: "#f75757",
+      Sucess: "#74d466",
     },
     fonts: {
       Primary: "'Poppins', sans-serif",

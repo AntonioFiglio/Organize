@@ -3,7 +3,7 @@ import Button from "../components/button";
 import { Input } from "../components/input";
 import api from "../services/api";
 import { useState, useEffect } from "react";
-import { Wrapper } from "../styles/Global";
+import { Wrapper, Text } from "../styles/Global";
 import { Loading } from "../components/loading";
 
 import {
@@ -13,7 +13,6 @@ import {
   Body,
   Footer,
   Extra,
-  Text,
 } from "../styles/pages/Sign";
 import { useAuth } from "../context/Auth";
 
@@ -30,31 +29,31 @@ export const SignIn = () => {
     e.preventDefault();
     setLoading(!loading);
 
-    if (!email || !password) {
-      return null;
-    }
+    try {
+      if (!email || !password) {
+        throw new Error("Missing arguments");
+      }
 
-    await api
-      .post("api/signIn", {
-        email: email,
-        password: password,
-      })
-      .then((res) => {
-        const { user, token } = res.data;
-        localStorage.setItem("user", JSON.stringify({ user, token }));
-        setAuth({
-          user,
-          token,
+      await api
+        .post("api/signIn", {
+          email: email,
+          password: password,
+        })
+        .then((res) => {
+          const { user, token } = res.data;
+          localStorage.setItem("user", JSON.stringify({ user, token }));
+          setAuth({
+            user,
+            token,
+          });
+
+          return history.replace("./workSpace");
         });
-
-        return history.replace("./workSpace");
-      })
-      .catch((error) => {
-        setLoading(false);
-        setError(true);
-
-        return console.log(error.toJSON());
-      });
+    } catch (err) {
+      setLoading(false);
+      setError(true);
+      return;
+    }
   };
 
   useEffect(() => {
@@ -62,7 +61,7 @@ export const SignIn = () => {
       return null;
     }
     return history.replace("./workSpace");
-  }, []);
+  });
 
   return (
     <>

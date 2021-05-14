@@ -1,7 +1,14 @@
 import styled, { css } from "styled-components";
 
 export const Container = styled.div`
-  height: 90vh;
+  min-height: 90vh;
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
   background-image: linear-gradient(
     to bottom right,
     ${(props) => props.theme.colors.Primary},
@@ -13,16 +20,21 @@ export const Header = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-around;
-
-  padding: 20px;
 `;
 
 export const Body = styled.div`
-  padding: 20px;
+  width: 100%;
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+
+  @media (max-width: 655px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 `;
 
 export const Text = styled.span`

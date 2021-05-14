@@ -1,17 +1,30 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
-export const Container = styled.label`
+export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   justify-content: center;
 
-  margin: 5px;
   transition: 300ms;
+  margin: 2px;
+
+  ${({ subContainer }) =>
+    subContainer &&
+    css`
+      position: relative;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+
+      background-color: ${(props) => props.theme.colors.PrimaryLightPlus};
+      border-radius: ${({ info }) => info.borderRadius};
+    `}
 `;
 
 export const ContainerInput = styled.input`
-  color: ${({ theme }) => theme.colors.TextColorPrimaryDark};
+  color: ${({ theme }) => theme.colors.TextColorPrimary};
   background-color: ${(props) => props.theme.colors.PrimaryLightPlus};
   font-size: ${({ info }) => info.fontSize};
   padding: ${({ info }) => info.padding};
@@ -55,16 +68,23 @@ export const Line = styled.div`
   }
 `;
 
-export const ShowPassword = styled.label`
+export const ShowPassword = styled.div`
+  position: absolute;
   display: flex;
+  justify-content: flex-end;
   align-items: center;
-  justify-content: center;
-  margin: 10px 0px 0px 0px;
+
+  height: 100%;
+  right: 5px;
 
   cursor: pointer;
-  font-size: 0.8rem;
-  * {
-    margin: 5px;
-    cursor: pointer;
+  transform: translateY(${({ show }) => (show ? "0px" : "3px")});
+
+  span {
+    position: relative;
+    width: 18px;
+    height: 18px;
+    border: 2px solid ${({ theme }) => theme.colors.TextColorPrimaryDark};
+    border-radius: 9px;
   }
 `;

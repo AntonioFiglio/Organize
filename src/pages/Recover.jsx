@@ -1,7 +1,8 @@
 import Button from "../components/button";
 import { Input } from "../components/input";
 import { RecoverImage } from "../components/svg/RecoverPage";
-import { Container, ContainerHelp, Text } from "../styles/pages/Recover";
+import { Container, ContainerHelp } from "../styles/pages/Recover";
+import { Text } from "../styles/Global";
 
 export const Recover = () => {
   const HandleSubmit = (e) => {

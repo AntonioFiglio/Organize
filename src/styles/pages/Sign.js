@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 export const Container = styled.div`
   display: flex;
@@ -64,42 +64,12 @@ export const Footer = styled.div`
   width: 100%;
 `;
 
-export const Text = styled.span`
-  font-size: 0.8rem;
-  color: ${({ theme }) => theme.colors.TextColorPrimaryDark};
-  transition: 300ms;
-
-  :hover {
-    color: ${({ theme }) => theme.colors.TextColorPrimary};
-    transition: 300ms;
-  }
-
-  ${({ Pointer }) =>
-    Pointer &&
-    css`
-      cursor: pointer;
-    `}
-
-  ${({ Bold }) =>
-    Bold &&
-    css`
-      font-weight: 800;
-      text-decoration: underline;
-    `};
-
-  ${({ Error }) =>
-    Error &&
-    css`
-      color: ${({ theme }) => theme.colors.Error} !important;
-    `};
-`;
-
 export const Extra = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-evenly;
   width: 100%;
-  transform: translateY(-10px);
+  margin: 5px;
 `;
 export const Term = styled.label`
   display: flex;

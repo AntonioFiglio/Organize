@@ -6,8 +6,8 @@ export const Container = styled.div`
   align-items: center;
   justify-content: center;
 
-  height: ${({ description }) => (description === true ? "400px" : "250px")};
-  width: ${({ description }) => (description === true ? "300px" : "250px")};
+  height: ${({ description }) => (description === true ? "350px" : "250px")};
+  width: ${({ description }) => (description === true ? "350px" : "250px")};
 
   padding: 5px;
   margin: 30px;
@@ -25,7 +25,6 @@ export const Container = styled.div`
 
   :hover {
     border: 2px solid ${(props) => props.theme.colors.Secundary};
-    transform: scale(1.1);
     transition: 300ms;
     cursor: pointer;
   }

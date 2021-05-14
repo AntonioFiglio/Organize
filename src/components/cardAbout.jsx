@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { Container, Text } from "../styles/components/cardAbout";
+import { Container } from "../styles/components/cardAbout";
+import { Text } from "../styles/Global";
 
 export const Card = ({ name, image, imageUrl, description: Inform, state }) => {
   const [description, setDescription] = useState(false);
@@ -20,7 +21,7 @@ export const Card = ({ name, image, imageUrl, description: Inform, state }) => {
               ) : (
                 <> {image}</>
               )}
-              <Text Tittle>{name}</Text>
+              <Text subTittle>{name}</Text>
             </>
           ) : (
             <>
@@ -29,8 +30,8 @@ export const Card = ({ name, image, imageUrl, description: Inform, state }) => {
               ) : (
                 <> {image}</>
               )}
-              <Text Tittle>{name}</Text>
-              <Text>{Inform}</Text>
+              <Text subTittle>{name}</Text>
+              <Text NormalSize>{Inform}</Text>
             </>
           )}
         </Container>
@@ -41,7 +42,7 @@ export const Card = ({ name, image, imageUrl, description: Inform, state }) => {
           ) : (
             <> {image}</>
           )}
-          <Text Tittle>{name}</Text>
+          <Text subTittle>{name}</Text>
         </Container>
       )}
     </>

@@ -3,10 +3,10 @@ import { HomeImage } from "./svg/Home_to_do.jsx";
 import {
   Container,
   ContainerMenssage,
-  Menssage,
   Image,
 } from "../styles/components/PageLanding";
 import { useAuth } from "../context/Auth.js";
+import { Text } from "../styles/Global.js";
 
 const PageLanding = () => {
   const { auth } = useAuth();
@@ -14,12 +14,12 @@ const PageLanding = () => {
   return (
     <Container>
       <ContainerMenssage>
-        <Menssage Tittle>Why do we use it?</Menssage>
+        <Text Tittle>Why do we use it?</Text>
         <div>
-          <Menssage>
+          <Text NormalSize>
             Time goes very fast! We can not stop the clock. This application is
             a salvation for you!
-          </Menssage>
+          </Text>
         </div>
         {auth === null ? (
           <Button

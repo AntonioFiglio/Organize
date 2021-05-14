@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 
 export const Container = styled.div`
   position: relative;
@@ -27,21 +27,9 @@ export const ContainerMenssage = styled.div`
   padding: 20px;
   margin: 0px;
 
-
   div {
     text-indent: 1rem;
   }
-`;
-
-export const Menssage = styled.span`
-  text-indent: 5px;
-  font-size: 1rem;
-
-  ${(props) =>
-    props.Tittle &&
-    css`
-      font-size: 2.2rem;
-    `}
 `;
 
 export const Image = styled.div`

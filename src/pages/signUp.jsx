@@ -6,7 +6,7 @@ import { useHistory } from "react-router-dom";
 import api from "../services/api";
 
 import Button from "../components/button";
-import { Wrapper } from "../styles/Global";
+import { Wrapper, Text } from "../styles/Global";
 import { Loading } from "../components/loading";
 import { Input } from "../components/input";
 import {
@@ -17,7 +17,6 @@ import {
   Footer,
   Extra,
   Term,
-  Text,
 } from "../styles/pages/Sign";
 
 export const SignUp = () => {
@@ -36,35 +35,36 @@ export const SignUp = () => {
     e.preventDefault();
     setLoading(!loading);
 
-    if (!checkTerm.current.checked) {
-      throw "Not checked!";
-    }
+    try {
+      if (!(name || email || password)) {
+        throw new Error("Missing arguments!");
+      }
 
-    if (!(name || email || password)) {
-      throw "Missing arguments!";
-    }
+      if (!checkTerm.current.checked) {
+        throw new Error("Not checked!");
+      }
 
-    await api
-      .post("api/signUp", {
-        name: name,
-        email: email,
-        password: password,
-      })
-      .then((res) => {
-        const { user, token } = res.data;
-        localStorage.setItem("user", JSON.stringify({ user, token }));
-        setAuth({
-          user,
-          token,
+      await api
+        .post("api/signUp", {
+          name: name,
+          email: email,
+          password: password,
+        })
+        .then((res) => {
+          const { user, token } = res.data;
+          localStorage.setItem("user", JSON.stringify({ user, token }));
+          setAuth({
+            user,
+            token,
+          });
+          setLoading(false);
+          return history.replace("./workSpace");
         });
-        setLoading(false);
-        return history.replace("./workSpace");
-      })
-      .catch((error) => {
-        setLoading(false);
-        setError(!error);
-        return console.log(error.toJSON());
-      });
+    } catch (err) {
+      setLoading(false);
+      setError(true);
+      return;
+    }
   };
 
   useEffect(() => {
@@ -72,7 +72,7 @@ export const SignUp = () => {
       return null;
     }
     return history.replace("./workSpace");
-  }, []);
+  });
 
   return (
     <>
@@ -155,6 +155,8 @@ export const SignUp = () => {
             )}
           </Body>
           <Footer>
+            {error ? <Text Error>Try again</Text> : null}
+
             <Button
               info={{
                 type: "submit",

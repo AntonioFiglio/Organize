@@ -1,4 +1,4 @@
-// import { useEffect, useState } from "react";
+import { useHistory } from "react-router-dom";
 import { useAuth } from "../context/Auth";
 import { Card } from "../components/cardAbout";
 
@@ -12,14 +12,21 @@ export const WorkSpace = () => {
     {
       name: "To Do",
       image: <IcoToDo Size={"12rem"} />,
+      url: "/WorkSpace/to-do",
     },
     {
       name: "Notes",
       image: <IcoNotes Size={"12rem"} />,
+      url: "/WorkSpace/notes",
     },
   ];
   const { auth } = useAuth();
+  const history = useHistory();
   const { name } = auth.user;
+
+  const handleClick = (url) => {
+    history.push(url);
+  };
 
   return (
     <Container>
@@ -29,12 +36,9 @@ export const WorkSpace = () => {
       <Body>
         {options.map((option, index) => {
           return (
-            <Card
-              key={index}
-              image={option.image}
-              name={option.name}
-              state={false}
-            />
+            <div key={index} onClick={() => handleClick(option.url)}>
+              <Card image={option.image} name={option.name} state={false} />
+            </div>
           );
         })}
       </Body>

@@ -16,7 +16,7 @@ export const Container = styled.div`
   }
 `;
 
-export const Body = styled.form`
+export const Body = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -24,9 +24,20 @@ export const Body = styled.form`
   height: auto;
 `;
 
-export const Panel = styled.div`
+export const Header = styled.div`
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+
+  width: 100%;
+  padding: 15px;
+
+  && :nth-child(2) {
+    display: flex;
+    justify-content: flex-start;
+    width: 100%;
+    margin: 10px;
+  }
 `;

@@ -1,69 +1,80 @@
 import { useState } from "react";
-import { useAuth } from "../context/Auth";
 import { Text } from "../styles/Global";
-import { Input } from "../components/input";
 import Button from "../components/button";
-import { Loading } from "../components/loading";
-import { Container, Body, Panel } from "../styles/pages/SettingsProfiles";
+import { Container, Header, Body } from "../styles/pages/SettingsProfiles";
 
-import api from "../services/api";
+import { DeleteAccount } from "../components/DeleteAccount";
+import { ChangePassword } from "../components/ChangePassword";
 
 export const SettingsProfiles = () => {
-  const { auth } = useAuth();
+  const [currentComponent, setCurrentComponent] = useState(null);
 
-  const [currentPassword, setCurrentPassword] = useState(undefined);
-  const [newPassword, setNewPassword] = useState(undefined);
+  const options = [
+    { name: "Change Password", component: <ChangePassword /> },
+    { name: "Delete Account", component: <DeleteAccount /> },
+  ];
 
-  const [loading, setLoading] = useState(false);
-  const [sucess, setSucess] = useState(false);
-  const [error, setError] = useState(false);
+  const handleClick = (index) => {
+    return setCurrentComponent(options[index]);
+  };
 
-  const { user } = auth;
-  const { name, email } = user;
-
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    setLoading(!loading);
-    setSucess(false);
-    setError(false);
-
-    try {
-      if (!currentPassword || !newPassword) {
-        setLoading(false);
-        throw new Error({ error: "Missing arguments" });
-      }
-      await api
-        .post(
-          "/api/profile/settings",
-          {
-            email,
-            currentPassword,
-            newPassword,
-          },
-          {
-            headers: {
-              Authorization: `${auth.token}`,
-            },
-          }
-        )
-        .then(() => {
-          setLoading(false);
-          setSucess("Sucess");
-          return;
-        });
-    } catch (err) {
-      console.log(`=> ${err}`);
-      setLoading(false);
-      return setError(`=> ${err}`);
-    }
+  const handleClickBack = () => {
+    return setCurrentComponent(null);
   };
 
   return (
     <Container>
-      <div className="center">
-        <Text Tittle>Settings</Text>
-      </div>
-      <Body method="post" onSubmit={handleSubmit}>
+      <Header>
+        <Text subTittle>
+          Settings
+          {currentComponent ? <> - {currentComponent.name}</> : null}
+        </Text>
+        {currentComponent ? (
+          <div onClick={handleClickBack}>
+            <Button
+              info={{
+                type: "button",
+                content: "Back",
+                fontSize: "1.0rem",
+                paddingX: "10px",
+                paddingY: "7px",
+                borderRadius: "4px",
+                Full: true,
+                width: "90px",
+              }}
+            />
+          </div>
+        ) : null}
+      </Header>
+
+      <Body>
+        {currentComponent ? (
+          <>{currentComponent.component}</>
+        ) : (
+          <>
+            {options.map((option, index) => {
+              return (
+                <div key={index} onClick={() => handleClick(index)}>
+                  <Button
+                    info={{
+                      type: "button",
+                      content: option.name,
+                      fontSize: "1.0rem",
+                      paddingX: "10px",
+                      paddingY: "7px",
+                      borderRadius: "4px",
+                      Full: true,
+                      width: "200px",
+                    }}
+                  />
+                </div>
+              );
+            })}
+          </>
+        )}
+      </Body>
+
+      {/* <Body method="post" onSubmit={handleSubmit}>
         {loading ? (
           <Loading info={{ size: "8rem", radius: "4rem" }} />
         ) : (
@@ -164,7 +175,7 @@ export const SettingsProfiles = () => {
             {sucess}
           </Text>
         )}
-      </Body>
+      </Body> */}
     </Container>
   );
 };

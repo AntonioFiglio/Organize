@@ -1,5 +1,16 @@
 # Changelog for resources pages
 
+## Update - 05/16/2021
+
+### Pages
+
+### Profile settings
+
+- New design available.
+- Now is posible delete your account
+
+<hr />
+
 ## Update - 05/14/2021
 
 ### Pages

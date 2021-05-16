@@ -27,7 +27,7 @@ export const ChangePassword = () => {
         throw new Error("Missing arguments");
       }
 
-      if (currentPassword == newPassword) {
+      if (currentPassword === newPassword) {
         throw new Error("Same password");
       }
 

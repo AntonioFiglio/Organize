@@ -31,6 +31,7 @@ const PageLanding = () => {
               paddingY: "15px",
               borderRadius: "20px",
               Ghost: true,
+              url: "/sign-up",
             }}
           />
         ) : (

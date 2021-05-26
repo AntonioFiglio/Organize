@@ -1,6 +1,9 @@
 <h1 align="center"> Organize Project </h1>
 <a href="https://organize.vercel.app/" target="_black">Visit the page</a>.
 
+###  Project no longer receive updates
+   [read about it](https://github.com/AntonioLourencos/Organize/blob/master/Notes.md)
+
    Organize is a project, whose main objective is to facilitate and assist in your tasks, using the application you will be able to perform all your activities at a high level with excellence. The application has a simple, modern, intuitive and interactive design, being easy to handle.
    <br />
    If you want to read more, visit the <a href="https://github.com/AntonioLourencos/Organize/blob/master/Update/Changelog.md">Changelogs</a>.
